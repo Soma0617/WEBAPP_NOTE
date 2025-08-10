@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "這邊可以改網頁標題";
+}
+
+<h1 class="text-center shadow p-4 mb-5">商品新增</h1>
+<h1>像是這樣 @ViewData["Title"]</h1>
+@* 如果要讓標題跟網頁標題一樣，可以把<h1>標籤的內容改成@ViewData["Title"]
+   ，讓系統去抓我在ViewData["Title"]裡設定的值 *@
+
+@* 只有在伺服端( server )才會使用<form>標籤
+   ，而表單內容以及submit按鈕都要放在<form>標籤裡
+   ，因為系統得區分是伺服端( server )還是客戶端( client )在用的表單
+   ，因此要寫在<form>標籤裡的才會被伺服端接受 *@
+<form method="post" action="/SimpleBind/Create">
+@* 這裡表示在按下submit按鈕之後，表單的送出方式以及要送給哪個action處理資料
+1. action屬性是指要送到哪個action處理，先寫Controller名稱SimpleBind，再來寫action名稱Create 
+2. method屬性是指表單送出的方法，這邊是以post方法送出( 要記得在Controller的對應action也寫[HttpPost] )
+補充 : 表單送出的方法有兩種 => get跟post *@
+    <p>商品編號 : <input type="text" id="ProductNo" name="ProductNo" class="form-control" /></p>
+    <p>商品名稱 : <input type="text" id="ProductName" name="ProductName" class="form-control" /></p>
+    <p>商品價格 : <input type="text" id="ProductPrice" name="ProductPrice" /></p>
+    @* id屬性是給客戶端( 前端 )的程式抓，name屬性是給伺服端( 後端 )的程式抓
+        ，建議兩個屬性都寫，並且都用一樣的名稱 *@
+    <p><input type="submit" value="確定新增" class="btn btn-success"/></p>
+    @* submit型態的按鈕只有在客戶端( client )要把資料送到伺服端( server )時才會使用
+        ，如果是前端送到前端的按鈕用button就可以 *@
+    <p><input type="submit" value="清除" class="btn btn-danger" /></p>
+</form>
+
+<hr />
+商品編號 : @ViewData["ProductNo"]
+<br />
+商品名稱 : @ViewData["ProductName"]
+<br />
+商品價格 : @ViewData["ProductPrice"]

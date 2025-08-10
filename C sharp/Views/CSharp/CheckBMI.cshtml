@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>BMI 結果查詢</h2>
+
+<p>身高：@ViewBag.Height 公分</p>
+<p>體重：@ViewBag.Weight 公斤</p>
+<p>你的 BMI 值為：<strong>@ViewBag.BMI</strong></p>
+<p>健康狀態：<strong>@ViewBag.Status</strong></p>
+
+@if (ViewBag.Status == "正常")
+{
+    <p>✅ 恭喜，健康狀態良好！</p>
+}
+else if (ViewBag.Status == "過輕")
+{
+    <p>⚠️ 體重偏輕，建議加強營養！</p>
+}
+else if (ViewBag.Status == "過重")
+{
+    <p>⚠️ 體重略重，適度控制飲食！</p>
+}
+else
+{
+    <p>🚨 體重超標，建議諮詢醫師與運動計劃！</p>
+}

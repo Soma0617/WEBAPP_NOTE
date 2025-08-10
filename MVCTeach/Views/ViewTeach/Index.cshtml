@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MVCTeach.Models.NightMarket>
+@* IEnumerable表示宣告收到的資料是多筆資料的樣態 => 集合資料 *@
+
+@{
+    ViewData["Title"] = "夜市資料後台管理";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">新增資料( Create New )</a>
+    @* 1. 這裡是有套用BS的功能 
+       2. asp-action叫做tag helper，會去找叫做Create的action *@
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                圖片
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+                這邊可以改屬性( 欄位 )名稱 : 夜市編號
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+                夜市名稱
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adress)
+                地址
+            </th>
+            <th>
+                地圖連結
+            </th>
+            <th>資料管理</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="/ImagesForView/@(item.Id).jpg" width="150" />
+                    @* 1. 圖片的寬度跟高度只需調整一個，另一個會按照比例調整
+                   2. @()是Razor語法，表示*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adress)
+                </td>
+                <td>
+                    <a href="http://www.google.com.tw/maps/search/@(item.Adress) target="_blank" class="btn btn-danger">地圖</a>
+                    @* target="_blank"表示會開啟新視窗來跑這個超連結 *@
+                </td>
+                <td>
+                    @* 超連結可以有三種寫法 :
+                    1. 使用HTMLHelper的ActionLink方法
+                    2. 使用Tag Helper的<a>標籤寫法 => 這個最常使用
+                    3. 使用HTML的<a>標籤寫法 *@
+                    @Html.ActionLink("編輯", "Edit", new { /* id=item.PrimaryKey */ }, new {@class="btn btn-danger"})
+                    @* 寫法一 :
+                    語法 :
+                    1. "編輯" => 畫面上顯示的文字
+                    2. "Edit" => action名稱，表示要跑哪個action
+                    3. new { /* id=item.PrimaryKey */ } => 表示要傳入的參數
+                    4. new {@class="btn btn-danger"} => 表示要套用的HTML屬性 *@
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">詳細資料Details</a>
+                    @* 寫法二 :  *@
+                    @* asp-route-id=""表示要在這個超連結的路徑加上一個叫做id( 自訂 )的參數
+                    ，參數的名稱要跟我要自己輸入的參數名稱一樣，這樣系統就會自動做繫結 *@
+                    <a href="/Home/Delete" class="btn btn-danger">刪除</a>
+                    @* 寫法三 :  *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

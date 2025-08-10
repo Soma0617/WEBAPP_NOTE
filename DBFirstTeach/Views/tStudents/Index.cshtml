@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DBFirstTeach.Models.tStudent>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                學號 @* 這種寫死的欄位名稱，而不是用讀取的欄位名稱稱作hard code寫法 *@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fName)
+                @* 
+                1. 在Model中使用的Display(Name = "欄位名稱")就是在這邊被使用的
+                2. DisplayName是用在使用欄位名稱的時候
+                *@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fScore)
+            </th>
+            <th>
+                資料管理
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fStuId)
+                @* Dispay是用在要使用資料本身的時候 *@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fScore)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.fStuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.fStuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.fStuId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

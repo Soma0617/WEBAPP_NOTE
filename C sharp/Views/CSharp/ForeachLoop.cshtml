@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>foreach 迴圈練習</h2>
+
+<p>水果清單：</p>
+<p>@Html.Raw(ViewBag.FruitList)</p>
+@*為什麼這裡要用 @Html.Raw()
+因為我們在Controller裡用了<br/>換行標籤，
+如果不用Raw，畫面會顯示字串本身( 而不是HTML效果 )*@

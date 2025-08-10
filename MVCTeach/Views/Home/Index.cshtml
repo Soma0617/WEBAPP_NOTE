@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>@ViewData["myTime"]</p>
+    
+    @* 
+    下面兩個寫法的差異
+    1. 直接把controller的字串翻譯過來，所以沒有HTML的超連結功能
+    2. 使用Html.Raw()，這樣就可以獲得Html該有的功能 
+    *@
+    <p>@ViewData["a"]</p>
+    @Html.Raw(ViewData["a"])
+    <h1>@ViewBag.A</h1>
+    @Html.Raw(ViewBag.A)
+</div>

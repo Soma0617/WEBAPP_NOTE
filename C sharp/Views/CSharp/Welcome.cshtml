@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>第七單元：定時器控制顯示</h2>
+
+<p id="message" style="display: none;">🎉 歡迎你來到MVC的世界</p>
+
+<script>
+    setTimeout(function () {
+        document.getElementById("message").style.display = "block";
+    }, 3000); // 等 3 秒（3000 毫秒）才顯示
+</script>
+
+<h2>第七單元：倒數計時顯示訊息</h2>
+
+<p id="countdown">倒數中...</p>
+<p id="message" style="display:none;">🎉 歡迎來到 MVC 的世界！</p>
+
+<script>
+    let seconds = 3;
+
+    const countdownText = document.getElementById("countdown");
+    const messageText = document.getElementById("message");
+
+    const timer = setInterval(() => {
+        if (seconds > 0) {
+            countdownText.innerText = "還有 " + seconds + " 秒...";
+            seconds--;
+        } else {
+            clearInterval(timer); // 停止倒數
+            countdownText.style.display = "none";
+            messageText.style.display = "block";
+        }
+    }, 1000);
+</script>

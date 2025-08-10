@@ -1,0 +1,47 @@
+﻿@model MVCTeach.Models.Product
+
+@{
+    ViewData["Title"] = "Create2";
+}
+
+<h1>Create2</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductNo" class="control-label">產品編號</label>
+                @* 雖然可以在這邊更改，但是每個資料表有很多個View
+                ，不可能每個資料表都一個一個去改
+                ，因此要改這種地方通常會直接寫在模型( Model )上 *@
+                <input asp-for="ProductNo" class="form-control" />
+                <span asp-validation-for="ProductNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductName產品名稱" class="control-label"></label>
+                <input asp-for="ProductName產品名稱" class="form-control" />
+                <span asp-validation-for="ProductName產品名稱" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductPrice" class="control-label"></label>
+                <input asp-for="ProductPrice" class="form-control" />
+                <span asp-validation-for="ProductPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<h3>@ViewData["ProductNo"] @ViewData["ProductName"] @ViewData["ProductPrice"]</h3>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form method="post" action="/FileUpload/Create" enctype="multipart/form-data">
+@* enctype屬性是上傳檔案功能一定要寫的屬性 *@
+    <p><input type="file" class="form-control" name="photo" id="photo"/></p>
+    <p><input type="submit" value="上傳" class="btn btn-success"/></p>
+</form>
+
+<h3 class="text-danger">@ViewData["ErrMessage"] @ViewData["SuccessMessage"]</h3>

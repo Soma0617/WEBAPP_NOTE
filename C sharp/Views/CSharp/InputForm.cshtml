@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>請輸入個人資料</h2>
+
+<form method="post"> @*method屬性是<form>標籤中常見的屬性，用來指定當表單送出時要以get來送出資料還是以post來送出資料*@
+    <label>你的名字：</label>
+    <input type="text" name="userName" />
+    <br />      
+
+    <label>你的年齡：</label>
+    <input type="number" name="age" />
+    <br />
+
+    <button type="submit">送出</button>
+</form>
+
+<hr />
+
+@if (ViewBag.UserName != null)
+{
+    <h3>歡迎你，@ViewBag.UserName</h3>
+    <p>你今年 @ViewBag.Age 歲</p>
+}

@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>查詢分數結果</h2>
+
+<p>你輸入的分數是：@ViewBag.Score</p>
+<p>判斷結果：@ViewBag.Result</p>
+
+@if (ViewBag.Result == "及格")
+{
+    <p>恭喜你及格了</p>
+}
+else if (ViewBag.Result == "不及格")
+{
+    <p>很可惜，請再加油</p>
+}
+else
+{
+    <p>請輸入正確的分數範圍( 0~100 )</p>
+}

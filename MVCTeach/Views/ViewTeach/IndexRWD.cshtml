@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MVCTeach.Models.NightMarket>
+
+@{
+    ViewData["Title"] = "你要去哪裡~";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+    @foreach (var item in Model) // item是自訂的
+    {
+        <div class="col-xl-4 col-md-6 col-sm-12">
+            <div class="card border-5 border-dark mb-2">
+                <img src="/ImagesForView/@(item.Id).jpg" class="img-fluid" />
+                <div class="card-body">
+                    <h2 class="fw-bold">@item.Name</h2>
+                    <p class="text-warning">@item.Adress</p>
+                    <p class="text-end">
+                    @* 因為<a>標籤是行內模型( inline )
+                    ，所以要把他放進<p>標籤中才可以改變文字位置 *@
+                        <a href="http://www.google.com.tw/maps/search/@(item.Adress) target="_blank" class="btn btn-danger">地圖</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

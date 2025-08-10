@@ -1,0 +1,44 @@
+﻿@model MVCTeach.Models.NightMarket
+
+@{
+	ViewData["Title"] = "DataList";
+}
+
+<h1>DataList</h1>
+
+<div class="row">
+	<div class="col-3">
+		<div class="list-group">
+			<a class="list-group-item list-group-item-action" asp-action="DataList" asp-route-id="A01">夜市一</a>
+			<a class="list-group-item list-group-item-action" asp-action="DataList" asp-route-id="A02">夜市二</a>
+			<a class="list-group-item list-group-item-action" asp-action="DataList" asp-route-id="A03">夜市三</a>
+			<a class="list-group-item list-group-item-action" asp-action="DataList" asp-route-id="A04">夜市四</a>
+		</div>
+	</div>
+	<div class="col-9">
+		<h4>NightMarket</h4>
+		<hr />
+		<div class="row">
+			<div class="col-md-6">
+				<img src="/ImagesForView/@(Model.Id).jpg" class="img-fluid" />
+			</div>
+			<div class="col-md-6">
+				<div class="card border-5 border-dark mb-2">
+					<div class="card-body">
+						<h2 class="fw-bold">@Model.Name</h2>
+						<p class="text-warning">@Model.Adress</p>
+						<p class="text-end">
+							@* 因為<a>標籤是行內模型( inline )
+							，所以要把他放進<p>標籤中才可以改變文字位置 *@
+							<a href="http://www.google.com.tw/maps/search/@(Model.Adress) target="_blank" class="btn btn-danger">地圖</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">Back to List</a>
+</div>
