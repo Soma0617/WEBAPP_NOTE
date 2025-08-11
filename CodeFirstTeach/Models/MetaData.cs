@@ -64,7 +64,7 @@ public class BookMetaData
     這個表示在填表單時，會把這個屬性( 欄位 )從View上隱藏起來，不會顯示在畫面上
     ，因為這個時間欄位是自動產生的，不需要讓使用者填寫
     */
-    public DateTime CreateDate { get; set; } = DateTime.Now;
+    public DateTime CreatedDate { get; set; } = DateTime.Now;
     /* 
     1. CreatedDate這個屬性( 名稱自訂 )是我建立來記錄每一筆資料的建立時間
     2. DateTime是CreatedDate這個屬性的資料型態，代表日期與時間的資料型態
@@ -94,7 +94,7 @@ public class ReBookMetaData
     [DataType(DataType.DateTime)]
     [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm:ss}")]
     [HiddenInput]
-    public DateTime CreateDate { get; set; } = DateTime.Now;
+    public DateTime CreatedDate { get; set; } = DateTime.Now;
     // 這個屬性會自動產生目前時間，當新增一筆資料時，CreateDate會自動填入目前時間
 
     /*

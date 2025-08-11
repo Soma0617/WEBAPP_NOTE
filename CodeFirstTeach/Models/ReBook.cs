@@ -18,7 +18,7 @@ namespace CodeFirstTeach.Models
 
         public string Author { get; set; } = null!;
 
-        public DateTime CreateDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         // 這個屬性會自動產生目前時間，當新增一筆資料時，CreateDate會自動填入目前時間
 
         public string BookID { get; set; } = null!;

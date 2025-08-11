@@ -14,7 +14,7 @@ namespace CodeFirstExam.Models
 
         public string Author { get; set; } = null!;
 
-        public DateTime CreateDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         public string BookID { get; set; } = null!;
 

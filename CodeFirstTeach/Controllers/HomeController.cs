@@ -75,18 +75,19 @@ MyModel_CodeFirst專案進行步驟
             ※另外會看到一個Migrations的資料夾及其檔案被建立在專案中，裡面紀錄著Migration的歷程※
             ※第(1)項指令執行成功才能執行第(2)項指令※
             (3)至SSMS中查看是否有成功建立資料庫及資料表(目前資料表內沒有資料)
+        補充 : ※※※目前建置出來的資料庫並沒有符合我們在模型中所撰寫的規則※※※
+               ※※※MetadataType 只適用於 UI 驗證，與資料庫有關的設定值仍需在原模型類別檔或DbContext中撰寫※※※
+               在Code First中，因原模型類別檔不會被覆蓋，所以可以直接在原模型類別檔中撰寫，不需要使用MetadataType
+               不過為了保持原模型類別檔與DB First的相容性，仍建議使用MetadataType來撰寫驗證規則給UI使用
+               因此我們必須在DbContext中使用Fluent API來撰寫與資料庫端有關的程式，才能確保在資料庫建立時會使用此規則
+        g. 在DbContext中使用Fluent API在GuestBookContext覆寫OnModelCreating方法
         
 
+h. 將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除( 回家要做 )
 
 
 
-※※※目前建置出來的資料庫並沒有符合我們在模型中所撰寫的規則※※※
-※※※MetadataType 只適用於 UI 驗證，與資料庫有關的設定值仍需在原模型類別檔或 DbContext 中撰寫。※※※
-在Code First中，因原模型類別檔不會被覆蓋，所以可以直接在原模型類別檔中撰寫，不需要使用MetadataType。
-不過為了保持原模型類別檔與DB First的相容性，仍建議使用MetadataType來撰寫驗證規則給UI使用。
-因此我們必須在DbContext中使用Fluent API來撰寫與資料庫端有關的程式，才能確保在資料庫建立時會使用此規則。
 
-1.2.6 在DbContext中使用Fluent API在GuestBookContext覆寫 OnModelCreating 方法
 1.2.7 將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除。
 1.2.8 重新執行Migration建置資料庫
 

@@ -35,7 +35,7 @@ public class BookExamMetaData
     [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm:ss}")]
     [HiddenInput]
 
-    public DateTime CreateDate { get; set; } = DateTime.Now;
+    public DateTime CreatedDate { get; set; } = DateTime.Now;
 }
 
 public class ReBookExamMetaData
@@ -59,7 +59,7 @@ public class ReBookExamMetaData
     [DataType(DataType.DateTime)]
     [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd hh:mm:ss}")]
     [HiddenInput]
-    public DateTime CreateDate { get; set; } = DateTime.Now;
+    public DateTime CreatedDate { get; set; } = DateTime.Now;
 
     [ForeignKey("BookExam")]
     public string BookID { get; set; } = null!;
