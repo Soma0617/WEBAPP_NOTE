@@ -81,14 +81,14 @@ MyModel_CodeFirst專案進行步驟
                不過為了保持原模型類別檔與DB First的相容性，仍建議使用MetadataType來撰寫驗證規則給UI使用
                因此我們必須在DbContext中使用Fluent API來撰寫與資料庫端有關的程式，才能確保在資料庫建立時會使用此規則
         g. 在DbContext中使用Fluent API在GuestBookContext覆寫OnModelCreating方法
-        
+        h. 將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除
+        i. 重新執行Migration建置資料庫 
+           => 在套件管理器主控台(檢視 > 其他視窗 > 套件管理器主控台)下指令
+            (1) Add-Migration InitialCreate
+            (2) Update-database
 
-h. 將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除( 回家要做 )
 
 
-
-
-1.2.7 將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除。
 1.2.8 重新執行Migration建置資料庫
 
 

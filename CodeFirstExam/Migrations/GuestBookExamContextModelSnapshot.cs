@@ -26,27 +26,32 @@ namespace CodeFirstExam.Migrations
                 {
                     b.Property<string>("BookID")
                         .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(36)");
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Discription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Photo")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
-                    b.HasKey("BookID");
+                    b.HasKey("BookID")
+                        .HasName("PK_BookExamID");
 
                     b.ToTable("Books");
                 });
@@ -55,27 +60,30 @@ namespace CodeFirstExam.Migrations
                 {
                     b.Property<string>("ReBookID")
                         .HasMaxLength(36)
-                        .HasColumnType("nvarchar(36)");
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(36)");
 
                     b.Property<string>("Author")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("BookID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BooksBookID")
-                        .HasColumnType("nvarchar(36)");
+                        .HasColumnType("varchar(36)");
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Discription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ReBookID");
+                    b.HasKey("ReBookID")
+                        .HasName("PK_ReBookExamID");
 
                     b.HasIndex("BooksBookID");
 
