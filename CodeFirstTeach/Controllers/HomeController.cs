@@ -86,19 +86,22 @@ MyModel_CodeFirst專案進行步驟
            => 在套件管理器主控台(檢視 > 其他視窗 > 套件管理器主控台)下指令
             (1) Add-Migration InitialCreate
             (2) Update-database
+        補充 : ※Fluent API 是 Entity Framework Core 提供的一種「以程式碼方式」設定資料模型屬性與資料表結構的方法。※
+               ※它通常在你的 DbContext 類別中，覆寫 OnModelCreating 方法來使用。※
+    3. 創建Initializer物件建立初始(種子)資料(Seed Data)
+    補充 : 
+    ※※※我們可以在創建資料庫時就創建幾筆初始的資料在裡面以供開發時測試之用，但這個動作不一定要做，視需求而定※※※
+    ※※※做此步驟前，請先將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除※※※
+        a. 準備種子照片( 老師提供的SeedPhotos資料夾 )
+        b. 在Models資料夾上按右鍵 > 加入 > 類別，檔名取名為SeedData.cs，按下新增鈕
+        c. 撰寫SeedData類別的內容
+            (1) 撰寫靜態方法Initialize( IServiceProvider serviceProvider )
+            (2) 撰寫Book及ReBook資料表內的初始資料程式
+            (3) 撰寫上傳圖片的程式
+            (4) 加上using()及判斷資料庫是否有資料的程式
+        
 
 
-
-1.2.8 重新執行Migration建置資料庫
-
-
-※Fluent API 是 Entity Framework Core 提供的一種「以程式碼方式」設定資料模型屬性與資料表結構的方法。※
-※它通常在你的 DbContext 類別中，覆寫 OnModelCreating 方法來使用。※
-
-
-1.3   創建Initializer物件建立初始(種子)資料(Seed Data)
-      ※※※我們可以在創建資料庫時就創建幾筆初始的資料在裡面以供開發時測試之用，但這個動作不一定要做，視需求而定※※※
-      ※※※做此步驟前，請先將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除※※※
 
 1.3.1 準備種子照片(SeedPhotos資料夾)
 1.3.2 在Models資料夾上按右鍵→加入→類別，檔名取名為SeedData.cs，按下「新增」鈕
