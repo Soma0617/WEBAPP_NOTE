@@ -92,31 +92,23 @@ MyModel_CodeFirst專案進行步驟
     補充 : 
     ※※※我們可以在創建資料庫時就創建幾筆初始的資料在裡面以供開發時測試之用，但這個動作不一定要做，視需求而定※※※
     ※※※做此步驟前，請先將資料庫刪除，並將專案中Migrations資料夾及內含檔案整個刪除※※※
-        a. 準備種子照片( 老師提供的SeedPhotos資料夾 )
+        a. 準備種子照片( 老師提供的SeedPhotos資料夾、我自己的SeedDog資料夾 )
         b. 在Models資料夾上按右鍵 > 加入 > 類別，檔名取名為SeedData.cs，按下新增鈕
         c. 撰寫SeedData類別的內容
             (1) 撰寫靜態方法Initialize( IServiceProvider serviceProvider )
             (2) 撰寫Book及ReBook資料表內的初始資料程式
             (3) 撰寫上傳圖片的程式
             (4) 加上using()及判斷資料庫是否有資料的程式
-        
+        d. 在Program.cs撰寫啟用Initializer的程式(要寫在var app = builder.Build();之後)
+           ※這個Initializer的作用是建立一些初始資料在資料庫中以利測試，所以不一定要有Initializer※
+           ※注意:初始資料的照片放在BookPhotos資料夾中※
+        e. 建置專案，確定專案完全建置成功
+        f. 若是沒有資料庫( 刪掉後需重建 )的情況下，再次於套件管理器主控台(檢視 > 其他視窗 > 套件管理器主控台)下指令
+            (1) Add-Migration InitialCreate
+            (2) Update-database
 
 
 
-1.3.1 準備種子照片(SeedPhotos資料夾)
-1.3.2 在Models資料夾上按右鍵→加入→類別，檔名取名為SeedData.cs，按下「新增」鈕
-1.3.3 撰寫SeedData類別的內容
-      (1)撰寫靜態方法 Initialize(IServiceProvider serviceProvider)
-      (2)撰寫Book及ReBook資料表內的初始資料程式
-      (3)撰寫上傳圖片的程式
-      (4)加上 using() 及 判斷資料庫是否有資料的程式
-1.3.4 在Program.cs撰寫啟用Initializer的程式(要寫在var app = builder.Build();之後)
-      ※這個Initializer的作用是建立一些初始資料在資料庫中以利測試，所以不一定要有Initializer※
-      ※注意:初始資料的照片放在BookPhotos資料夾中※
-1.3.5 建置專案，確定專案完全建置成功
-1.3.6 再次於套件管理器主控台(檢視 > 其他視窗 > 套件管理器主控台)下指令
-      (1)Add-Migration InitialCreate
-      (2)Update-database
 1.3.7 至SSMS中查看是否有成功建立資料庫及資料表(目前資料表內沒有資料)
 1.3.8 在瀏覽器上執行網站首頁以建立初始資料(若沒有執行過網站，初始資料不會被建立)
 1.3.9 再次至SSMS中查看資料表內是否有資料
