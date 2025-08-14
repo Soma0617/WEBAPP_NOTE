@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Net;
 using System.Net;
 
 namespace CodeFirstTeach.Models
@@ -37,7 +37,7 @@ namespace CodeFirstTeach.Models
                         {
                             BookID = guid[0], // 用陣列取值
                             Title = "C# 程式設計",
-                            Discription = "這是一本關於C#程式設計的書籍",
+                            Description = "這是一本關於C#程式設計的書籍",
                             Author = "作者一號",
                             Photo = guid[0] + ".jpg",
                             CreatedDate = DateTime.Now,
@@ -46,7 +46,7 @@ namespace CodeFirstTeach.Models
                         {
                             BookID = guid[1],
                             Title = "烹飪課",
-                            Discription = "這是一本關於烹飪的書籍",
+                            Description = "這是一本關於烹飪的書籍",
                             Author = "作者五號",
                             Photo = guid[1] + ".jpg",
                             CreatedDate = DateTime.Now,
@@ -55,7 +55,7 @@ namespace CodeFirstTeach.Models
                         {
                             BookID = guid[2],
                             Title = "估尼",
-                            Discription = "?????",
+                            Description = "?????",
                             Author = "作者八號",
                             Photo = guid[2] + ".jpg",
                             CreatedDate = DateTime.Now,
@@ -64,7 +64,7 @@ namespace CodeFirstTeach.Models
                         {
                             BookID = guid[3],
                             Title = "鬼之副長",
-                            Discription = "超帥",
+                            Description = "超帥",
                             Author = "作者二號",
                             Photo = guid[3] + ".jpg",
                             CreatedDate = DateTime.Now,
@@ -73,7 +73,7 @@ namespace CodeFirstTeach.Models
                         {
                             BookID = guid[4],
                             Title = "叭哩補補",
-                            Discription = "補補里",
+                            Description = "補補里",
                             Author = "作者七號",
                             Photo = guid[4] + ".jpg",
                             CreatedDate = DateTime.Now,
@@ -85,7 +85,7 @@ namespace CodeFirstTeach.Models
                         new ReBook
                         {
                             ReBookID = Guid.NewGuid().ToString(),
-                            Discription = "111111",
+                            Description = "111111",
                             Author = "作者一號",
                             CreatedDate = DateTime.Now,
                             BookID = guid[0] // ReBook的Foreign Key關聯到BookID
@@ -97,7 +97,7 @@ namespace CodeFirstTeach.Models
                         new ReBook
                         {
                             ReBookID = Guid.NewGuid().ToString(),
-                            Discription = "222222",
+                            Description = "222222",
                             Author = "作者二號",
                             CreatedDate = DateTime.Now,
                             BookID = guid[0]
@@ -105,7 +105,7 @@ namespace CodeFirstTeach.Models
                         new ReBook
                         {
                             ReBookID = Guid.NewGuid().ToString(),
-                            Discription = "333333",
+                            Description = "333333",
                             Author = "作者三號",
                             CreatedDate = DateTime.Now,
                             BookID = guid[2]
@@ -113,7 +113,7 @@ namespace CodeFirstTeach.Models
                         new ReBook
                         {
                             ReBookID = Guid.NewGuid().ToString(),
-                            Discription = "444444",
+                            Description = "444444",
                             Author = "作者四號",
                             CreatedDate = DateTime.Now,
                             BookID = guid[4]
@@ -121,7 +121,7 @@ namespace CodeFirstTeach.Models
                         new ReBook
                         {
                             ReBookID = Guid.NewGuid().ToString(),
-                            Discription = "555555",
+                            Description = "555555",
                             Author = "作者五號",
                             CreatedDate = DateTime.Now,
                             BookID = guid[4]

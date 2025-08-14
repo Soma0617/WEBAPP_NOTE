@@ -25,11 +25,25 @@ namespace CodeFirstTeach.Controllers
         => 非同步傳輸跟同步傳輸差異在於非同步傳輸先完成的Action先response，但同步傳輸是等所有的Action都完成後才response
         */
         {
-            return View(await _context.Books.ToListAsync());
+            /*
+            筆記( 二.1.f. ) : 修改Index Action的寫法
+            */
+            // 寫法一 : 
+            var result = _context.Books.OrderByDescending(s => s.CreatedDate);
+            // 這裡的OrderByDescending是用來排序的，s => s.CreatedDate表示按照CreatedDate欄位降冪排序
+
+            return View(await result.ToListAsync());
+            /*
+            寫法二 : 
+            var result = await _context.Books.OrderByDescending(s => s.CreatedDate).ToListAsync();
+            
+            return View( result);
+            */
         }
 
         // GET: PostBooks/Details/5
-        public async Task<IActionResult> Details(string id)
+        // 筆記( 二.2.b. ) : 將PostBooksController中Details Action改名為Display( View也要改名字 )
+        public async Task<IActionResult> Display(string id)
         {
             if (id == null)
             {

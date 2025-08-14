@@ -1,0 +1,26 @@
+﻿@model CodeFirstExam.Models.BookExam
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h2>@Html.DisplayFor(modelItem => Model.Title)</h2>
+    <div class="card mb-4">
+        <img src="~/BookExamPhotos/@Model.Photo" class="card-img-top img-fluid" />
+        <div class="card-body">
+            <p>@Html.DisplayFor(modelItem => Model.Discription)</p>
+        </div>
+        <div class="card-footer">
+            <p class="text-end">
+                @Html.DisplayFor(modelItem => Model.Author) 於
+                @Html.DisplayFor(modelItem => Model.CreatedDate)
+            </p>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">回留言列表</a>
+</div>

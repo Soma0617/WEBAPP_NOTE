@@ -33,7 +33,7 @@ public class BookMetaData
     [Required(ErrorMessage = "必填欄位")]
     [DataType(DataType.MultilineText)]
     // DataType(DataType.MultilineText)是用來指定這個欄位是多行文字輸入框
-    public string Discription { get; set; } = null!;
+    public string Description { get; set; } = null!;
 
     [Display(Name = "留言者")]
     [Required(ErrorMessage = "必填欄位")]
@@ -83,7 +83,7 @@ public class ReBookMetaData
     [Display(Name = "留言內容")]
     [Required(ErrorMessage = "必填欄位")]
     [DataType(DataType.MultilineText)]
-    public string Discription { get; set; } = null!;
+    public string Description { get; set; } = null!;
 
     [Display(Name = "留言者")]
     [Required(ErrorMessage = "必填欄位")]

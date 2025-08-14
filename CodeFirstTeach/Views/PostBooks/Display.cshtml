@@ -1,0 +1,32 @@
+﻿@model CodeFirstTeach.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@* 筆記( 二.2.d. ) : 修改Display View 排版樣式，排版可以個人喜好呈現 *@
+<h1>Details</h1>
+
+<div>
+    <h2>@Html.DisplayFor(modelItem => Model.Title)</h2>
+    <div class="card mb-4">
+        <img src="~/BookPhotos/@Model.Photo" class="card-img-top img-fluid" />
+        <div class="card-body">
+            <p>@Html.DisplayFor(modelItem => Model.Description)</p>
+        </div>
+        <div class="card-footer">
+            <p class="text-end">
+                @Html.DisplayFor(modelItem => Model.Author) 於
+                @Html.DisplayFor(modelItem => Model.CreatedDate)
+            </p>
+        </div>
+    </div>
+</div>
+<hr />
+<div>
+    @* 筆記( 二.3.l. ) : 編寫Display View，加入VCReBooks ViewComponent *@
+    @await Component.InvokeAsync("VCReBooks", new { bookID = Model.BookID })
+</div>
+<div>
+    <a asp-action="Index">回留言列表</a>
+</div>

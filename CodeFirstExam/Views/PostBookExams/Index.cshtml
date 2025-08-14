@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CodeFirstTeach.Models.Book>
+﻿@model IEnumerable<CodeFirstExam.Models.BookExam>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,21 +13,20 @@
 @foreach (var item in Model)
 {
     <div class="card mb-4">
-        <img src="~/BookPhotos/@item.Photo" class="card-img-top img-fluid"/>
+        <img src="~/BookExamPhotos/@item.Photo" class="card-img-top img-fluid" />
         <div class="card-body">
             <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
-            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+            <p>@Html.DisplayFor(modelItem => item.Discription)</p>
         </div>
         <div class="card-footer">
-            <p class="text-end">@Html.DisplayFor(modelItem => item.Author) 於 
-                @Html.DisplayFor(modelItem => item.CreatedDate) 
-                @* 也可以寫成@item.CreatedDate，但這個是原始資料呈現，意思是如果更改Model中的規則，這裡的資料並不會被改變規則 *@發表這則留言
-                @* 因此像是照片那種沒有顯示格式問題的資料，就可以直接用@item.Photo來寫 *@
+            <p class="text-end">
+                @Html.DisplayFor(modelItem => item.Author) 於 @Html.DisplayFor(modelItem => item.CreatedDate)發表這則留言
                 <a asp-action="Display" asp-route-id="@item.BookID">看更多細節...</a>
-            </p> 
+            </p>
         </div>
     </div>
 }
+
 <table class="table">
     <thead>
         <tr>
@@ -35,13 +34,13 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
+                @Html.DisplayNameFor(model => model.Discription)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreatedDate)
@@ -56,13 +55,13 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
+                @Html.DisplayFor(modelItem => item.Discription)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedDate)

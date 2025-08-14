@@ -17,7 +17,7 @@ namespace CodeFirstTeach.Migrations
                 {
                     BookID = table.Column<string>(type: "varchar(36)", unicode: false, maxLength: 36, nullable: false),
                     Title = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Discription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Photo = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false)
@@ -32,7 +32,7 @@ namespace CodeFirstTeach.Migrations
                 columns: table => new
                 {
                     ReBookID = table.Column<string>(type: "varchar(36)", unicode: false, maxLength: 36, nullable: false),
-                    Discription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     BookID = table.Column<string>(type: "varchar(36)", nullable: false)
