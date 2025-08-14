@@ -106,30 +106,24 @@ MyModel_CodeFirst專案進行步驟
         f. 若是沒有資料庫( 刪掉後需重建 )的情況下，再次於套件管理器主控台(檢視 > 其他視窗 > 套件管理器主控台)下指令
             (1) Add-Migration InitialCreate
             (2) Update-database
-
-
-
-1.3.7 至SSMS中查看是否有成功建立資料庫及資料表(目前資料表內沒有資料)
-1.3.8 在瀏覽器上執行網站首頁以建立初始資料(若沒有執行過網站，初始資料不會被建立)
-1.3.9 再次至SSMS中查看資料表內是否有資料
-
-
- 2.製作留言板前台功能
-
-2.1   製作自動生成的Book資料表CRUD
-2.1.1 在Controllers資料夾上按右鍵→加入→控制器
-2.1.2 選擇「使用EntityFramework執行檢視的MVC控制器」→按下「加入」鈕
-2.1.3 在對話方塊中設定如下
-      模型類別: Book(MyModel_CodeFirst.Models)
-      資料內容類別: GuestBookContext(MyModel_CodeFirst.Models)
-      勾選 產生檢視
-      勾選 參考指令碼程式庫
-      勾選 使用版面配置頁
-      控制器名稱改為PostBooksController
-      按下「新增」鈕
-2.1.4 修改PostBooksController，移除Edit、Delete Action
-2.1.5 刪除Edit、Delete View檔案
-2.1.6 修改Index Action的寫法
+        g. 至SSMS中查看是否有成功建立資料庫及資料表( 目前資料表內沒有資料 )
+        h. 在瀏覽器上執行網站首頁以建立初始資料( 若沒有執行過網站，初始資料不會被建立 )
+        i. 再次至SSMS中查看資料表內是否有資料
+二. 製作留言板前台功能
+    1. 製作自動生成的Book資料表CRUD
+        a. 在Controllers資料夾上按右鍵 > 加入 > 控制器
+        b. 選擇使用EntityFramework執行檢視的MVC控制器 > 按下加入鈕
+        c. 在對話方塊中設定如下
+            (1) 模型類別: Book(MyModel_CodeFirst.Models)
+            (2) 資料內容類別: GuestBookContext(MyModel_CodeFirst.Models)
+            (3) 勾選 產生檢視
+            (4) 勾選 參考指令碼程式庫
+            (5) 勾選 使用版面配置頁
+            (6) 控制器名稱改為PostBooksController
+            (7) 按下新增鈕
+        d. 修改PostBooksController，移除Edit、Delete Action( 因為這是留言板前台功能，不能讓訪客編輯以及刪除資料表欄位 )
+        e. 刪除Edit、Delete View檔案
+        f. 修改Index Action的寫法
 
 
 2.2   顯示功能
