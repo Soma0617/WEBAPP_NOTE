@@ -22,7 +22,7 @@ namespace CodeFirstTeach.Controllers
         public async Task<IActionResult> Index()
         /*
         這叫做非同步傳輸Action : 目的是提升效率
-        => 非同步傳輸跟同步傳輸差異在於非同步傳輸先完成的Action先回應，但同步傳輸是等所有的Action都完成後才回應
+        => 非同步傳輸跟同步傳輸差異在於非同步傳輸先完成的Action先response，但同步傳輸是等所有的Action都完成後才response
         */
         {
             return View(await _context.Books.ToListAsync());
