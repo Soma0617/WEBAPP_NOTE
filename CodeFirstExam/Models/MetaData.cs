@@ -9,6 +9,7 @@ public class BookExamMetaData
     [Display(Name = "留言編號")]
     [StringLength(36, MinimumLength = 36)]
     [Key]
+    [HiddenInput]
     public string BookID { get; set; } = null!;
 
     [Display(Name = "留言標題")]
@@ -19,7 +20,7 @@ public class BookExamMetaData
     [Display(Name = "留言內容")]
     [Required(ErrorMessage = "必填欄位")]
     [DataType(DataType.MultilineText)]
-    public string Discription { get; set; } = null!;
+    public string Description { get; set; } = null!;
 
     [Display(Name = "留言者")]
     [Required(ErrorMessage = "必填欄位")]
@@ -48,7 +49,7 @@ public class ReBookExamMetaData
     [Display(Name = "留言內容")]
     [Required(ErrorMessage = "必填欄位")]
     [DataType(DataType.MultilineText)]
-    public string Discription { get; set; } = null!;
+    public string Description { get; set; } = null!;
 
     [Display(Name = "留言者")]
     [Required(ErrorMessage = "必填欄位")]

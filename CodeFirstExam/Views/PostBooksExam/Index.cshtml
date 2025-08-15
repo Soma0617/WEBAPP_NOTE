@@ -16,12 +16,13 @@
         <img src="~/BookExamPhotos/@item.Photo" class="card-img-top img-fluid" />
         <div class="card-body">
             <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
-            <p>@Html.DisplayFor(modelItem => item.Discription)</p>
+            <p>@Html.DisplayFor(modelItem => item.Description)</p>
         </div>
         <div class="card-footer">
             <p class="text-end">
-                @Html.DisplayFor(modelItem => item.Author) 於 @Html.DisplayFor(modelItem => item.CreatedDate)發表這則留言
-                <a asp-action="Display" asp-route-id="@item.BookID">看更多細節...</a>
+                @Html.DisplayFor(modelItem => item.Author) 於
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+                <a asp-action="DisplayExam" asp-route-id="@item.BookID">看更多細節...</a>
             </p>
         </div>
     </div>
@@ -34,7 +35,7 @@
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Discription)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Photo)
@@ -55,7 +56,7 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Discription)
+                    @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Photo)

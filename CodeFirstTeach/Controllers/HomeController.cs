@@ -132,15 +132,13 @@ MyModel_CodeFirst專案進行步驟
            ※排版可以個人喜好呈現※
     3. 使用ViewComponent技巧實作將回覆留言內容顯示於Display View
        ※此單元將要介紹ViewComponent的使用方式※
-        a. 使用「ViewComponent」技巧實作「將回覆留言內容顯示於Display View」
-        ※此單元將要介紹ViewComponent的使用方式※
-        b. 在專案中新增ViewComponents資料夾( 專案上按右鍵 > 加入 > 新增資料夾 )來放置所有的ViewComponent元件檔
-        c. 在ViewComponents資料夾中建立VCReBooks ViewComponent( 右鍵 > 加入 > 類別 > 輸入檔名 > 新增 )
-        d. VCReBooks class繼承ViewComponent( 注意using Microsoft.AspNetCore.Mvc; )
-        e. 撰寫InvokeAsync()方法取得回覆留言資料
-        f. 在/Views/Shared裡建立Components資料夾，並在Components資料夾中建立VCReBooks資料夾
-        g. 在/Views/Shared/Components/VCReBooks裡建立檢視(右鍵 > 加入 > 檢視 > 選擇Razor檢視 > 按下加入鈕)
-        i. 在對話方塊中設定如下
+        a. 在專案中新增ViewComponents資料夾( 專案上按右鍵 > 加入 > 新增資料夾 )來放置所有的ViewComponent元件檔
+        b. 在ViewComponents資料夾中建立VCReBooks ViewComponent( 右鍵 > 加入 > 類別 > 輸入檔名 > 新增 )
+        c. VCReBooks class繼承ViewComponent( 注意using Microsoft.AspNetCore.Mvc; )
+        d. 撰寫InvokeAsync()方法取得回覆留言資料
+        e. 在/Views/Shared裡建立Components資料夾，並在Components資料夾中建立VCReBooks資料夾
+        f. 在/Views/Shared/Components/VCReBooks裡建立檢視(右鍵 > 加入 > 檢視 > 選擇Razor檢視 > 按下加入鈕)
+        g. 在對話方塊中設定如下
             (1) 檢視名稱: Default
             (2) 範本: Empty(沒有模型)
             (3) 不勾選 建立成局部檢視
@@ -148,21 +146,17 @@ MyModel_CodeFirst專案進行步驟
         補充 : 資料夾及View的名稱不是自訂的，而是有預設的名稱，規定如下：
         ※/Views/Shared/Components/{ComponentName}/Default.cshtml
         ※/Views/{ControllerName}/Components/{ComponentName}/Default.cshtml※
-        j. 在Default View上方加入@model IEnumerable<MyModel_CodeFirst.Models.ReBook>
-        k. 依喜好編輯Default View排版方式
-        l. 編寫Display View，加入VCReBooks ViewComponent
-        m. 測試
-
-
-
-
-2.4   留言功能
-2.4.1 修改Create View，修改Photo為上傳檔案的元件(type="file")
-2.4.2 修改Create View，將<form>增加 enctype="multipart/form-data" 屬性
-2.4.3 加入前端效果，使照片可先預覽
-2.4.4 刪除CreatedDate欄位
-2.4.5 修改Description欄位的標籤為textarea
-2.4.6 修改Post Create Action，加上處理上傳照片的功能
+        h. 在Default View上方加入@model IEnumerable<MyModel_CodeFirst.Models.ReBook>
+        i. 依喜好編輯Default View排版方式
+        j. 編寫Display View，加入VCReBooks ViewComponent
+        k. 測試
+    4. 留言( 主留言 )功能
+        a. 修改Create View，修改Photo為上傳檔案的元件(type="file")
+        b. 修改Create View，將<form>增加 enctype="multipart/form-data" 屬性
+        c. 加入前端效果，使照片可先預覽
+        d. 刪除CreatedDate欄位
+        e. 修改Description欄位的標籤為textarea
+        f. 修改Post Create Action，加上處理上傳照片的功能
 2.4.7 測試留言功能
 2.4.8 在Index View中加入未上傳照片的留言之顯示方式
 2.4.9 在Display View中加入未上傳照片的留言之顯示方式
@@ -171,8 +165,8 @@ MyModel_CodeFirst專案進行步驟
 2.4.12 在VCReBook View Component的Default View中加入沒有回覆留言即不顯示的判斷
 
 
-2.5   回覆留言功能
-2.5.1 在Controllers資料夾上按右鍵→加入→控制器
+    5. 回覆留言功能
+        a. 在Controllers資料夾上按右鍵 > 加入 > 控制器
 2.5.2 選擇「使用EntityFramework執行檢視的MVC控制器」→按下「加入」鈕
 2.5.3 在對話方塊中設定如下
       模型類別: ReBook(MyModel_CodeFirst.Models)

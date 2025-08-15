@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using System.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodeFirstTeach.Models
 {

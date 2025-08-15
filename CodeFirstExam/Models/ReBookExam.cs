@@ -10,7 +10,7 @@ namespace CodeFirstExam.Models
         [Key]
         public string ReBookID { get; set; } = null!;
 
-        public string Discription { get; set; } = null!;
+        public string Description { get; set; } = null!;
 
         public string Author { get; set; } = null!;
 

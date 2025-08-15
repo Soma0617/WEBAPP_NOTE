@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CodeFirstTeach.Models;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CodeFirstTeach.Controllers
 {
@@ -71,8 +72,32 @@ namespace CodeFirstTeach.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,Title,Discription,Author,Photo,CreatedDate")] Book book)
+        public async Task<IActionResult> Create([Bind("BookID,Title,Discription,Author,Photo,CreatedDate")] Book book, IFormFile? newPhoto)
         {
+            // book.BookID = Guid.NewGuid().ToString(); => 產生一個新的GUID作為BookID，這個東西也可以寫在View中BookID的<input>裡
+            book.CreatedDate = DateTime.Now; // 設定CreatedDate為目前時間
+
+            // 筆記( 二.4.f. ) : 修改Post Create Action，加上處理上傳照片的功能
+            if (newPhoto != null && newPhoto.Length != 0)
+            {
+                // 1. 只允許上傳圖片 : 
+                if (newPhoto.ContentType != "image/jpeg" && newPhoto.ContentType != "image/png")
+                {
+                    ViewData["ErrorMessage"] = "上傳的檔案格式不正確，請上傳JPG或PNG格式的圖片";
+                    return View();
+                }
+                // 2. 取得檔案名稱 : 
+                string fileName = book.BookID + Path.GetExtension(newPhoto.FileName);
+                // 3. 取得檔案完整位置 : 
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "BookPhotos", fileName);
+                // 4. 將檔案上傳並存取於指定路徑 : 
+                using (FileStream fs = new FileStream(filePath, FileMode.Create))
+                {
+                    newPhoto.CopyTo(fs);
+                }
+                book.Photo = fileName; // 將檔案名稱存入Book的Photo屬性
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(book);

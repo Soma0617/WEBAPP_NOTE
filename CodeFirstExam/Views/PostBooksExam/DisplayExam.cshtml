@@ -11,7 +11,7 @@
     <div class="card mb-4">
         <img src="~/BookExamPhotos/@Model.Photo" class="card-img-top img-fluid" />
         <div class="card-body">
-            <p>@Html.DisplayFor(modelItem => Model.Discription)</p>
+            <p>@Html.DisplayFor(modelItem => Model.Description)</p>
         </div>
         <div class="card-footer">
             <p class="text-end">
@@ -21,6 +21,11 @@
         </div>
     </div>
 </div>
+<hr />
 <div>
-    <a asp-action="Index">回留言列表</a>
+    @await Component.InvokeAsync("VCReBooks", new { bookID = Model.BookID })
+</div>
+
+<div>
+    <a asp-action="Index">回到留言板</a>
 </div>

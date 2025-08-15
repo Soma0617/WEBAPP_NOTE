@@ -15,6 +15,7 @@ public class BookMetaData
     [Display(Name = "留言編號")]
     [StringLength(36, MinimumLength = 36)] // GUID的長度是36個字元
     [Key] // 因為這是P.K.主索引鍵，所以要加上[Key]屬性，這樣在資料庫端才會把這個建立成主索引鍵
+    [HiddenInput]
     public string BookID { get; set; } = null!;
     // 留言編號採用GUID
     // { get; set; }叫做屬性封裝，get是取得屬性的值( getter )，set是設定屬性的值( setter )

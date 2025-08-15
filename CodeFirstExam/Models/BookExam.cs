@@ -12,7 +12,7 @@ namespace CodeFirstExam.Models
 
         public string Title { get; set; } = null!;
 
-        public string Discription { get; set; } = null!;
+        public string Description { get; set; } = null!;
 
         public string? Photo { get; set; } = null!;
 
