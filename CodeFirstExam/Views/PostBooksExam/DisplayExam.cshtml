@@ -26,6 +26,9 @@
     </div>
 </div>
 <hr />
+<div id="ReBookForm">
+</div>
+<hr />
 <div>
     @await Component.InvokeAsync("VCReBooks", new { bookID = Model.BookID })
 </div>
@@ -33,3 +36,10 @@
 <div>
     <a asp-action="Index">回到留言板</a>
 </div>
+
+@section Scripts
+{
+    <script>
+        $('#ReBookForm').load('/RePostBookExams/Create')
+    </script>
+}

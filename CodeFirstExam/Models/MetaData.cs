@@ -44,6 +44,7 @@ public class ReBookExamMetaData
     [Display(Name = "留言編號")]
     [StringLength(36, MinimumLength = 36)]
     [Key]
+    [HiddenInput]
     public string ReBookID { get; set; } = null!;
 
     [Display(Name = "留言內容")]
