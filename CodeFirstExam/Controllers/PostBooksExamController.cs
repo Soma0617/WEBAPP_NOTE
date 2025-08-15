@@ -54,7 +54,7 @@ namespace CodeFirstExam.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,Title,Discription,Photo,Author,CreatedDate")] BookExam bookExam, IFormFile? newPhoto)
+        public async Task<IActionResult> Create([Bind("BookID,Title,Description,Photo,Author,CreatedDate")] BookExam bookExam, IFormFile? newPhoto)
         {
             bookExam.CreatedDate = DateTime.Now;
 

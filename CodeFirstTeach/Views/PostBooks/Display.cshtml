@@ -10,9 +10,15 @@
 <div>
     <h2>@Html.DisplayFor(modelItem => Model.Title)</h2>
     <div class="card mb-4">
-        <img src="~/BookPhotos/@Model.Photo" class="card-img-top img-fluid" />
+        @* 筆記( 二.4.i. ) : 在Display View中加入未上傳照片的留言之顯示方式 *@
+        @if (Model.Photo != null)
+        {
+            <img src="~/BookPhotos/@Model.Photo" class="card-img-top img-fluid" />
+        }
         <div class="card-body">
-            <p>@Html.DisplayFor(modelItem => Model.Description)</p>
+            @* 筆記( 二.4.k. ) : 在Display View中加入處理有換行的留言顯示方式
+            ，\r\n要轉換成<br />才會顯示換行 *@
+            <p>@Html.Raw(Model.Description.Replace("\r\n", "<br>"))</p>
         </div>
         <div class="card-footer">
             <p class="text-end">

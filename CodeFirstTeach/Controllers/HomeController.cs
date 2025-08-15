@@ -1,21 +1,25 @@
 using System.Diagnostics;
 using CodeFirstTeach.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodeFirstTeach.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly GuestBookContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, GuestBookContext context)
         {
             _logger = logger;
+            _context = context;
         }
-
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            // Take()就是取前幾筆資料的意思，括號中可以是常數，也可以是參數
+            var result = await _context.Books.Where(b => b.Photo != null).OrderByDescending(s => s.CreatedDate).Take(4).ToListAsync();
+            return View(result);
         }
 
         public IActionResult Privacy()
@@ -157,12 +161,12 @@ MyModel_CodeFirst專案進行步驟
         d. 刪除CreatedDate欄位
         e. 修改Description欄位的標籤為textarea
         f. 修改Post Create Action，加上處理上傳照片的功能
-2.4.7 測試留言功能
-2.4.8 在Index View中加入未上傳照片的留言之顯示方式
-2.4.9 在Display View中加入未上傳照片的留言之顯示方式
-2.4.10 在Index View中加入處理「有換行的留言」顯示方式
-2.4.11 在Display View中加入處理「有換行的留言」顯示方式
-2.4.12 在VCReBook View Component的Default View中加入沒有回覆留言即不顯示的判斷
+        g. 測試留言功能
+        h. 在Index View中加入未上傳照片的留言之顯示方式
+        i. 在Display View中加入未上傳照片的留言之顯示方式
+        j. 在Index View中加入處理有換行的留言顯示方式
+        k. 在Display View中加入處理有換行的留言顯示方式
+        l. 在VCReBook View Component的Default View中加入沒有回覆留言即不顯示的判斷
 
 
     5. 回覆留言功能

@@ -72,7 +72,7 @@ namespace CodeFirstTeach.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookID,Title,Discription,Author,Photo,CreatedDate")] Book book, IFormFile? newPhoto)
+        public async Task<IActionResult> Create([Bind("BookID,Title,Description,Author,Photo,CreatedDate")] Book book, IFormFile? newPhoto)
         {
             // book.BookID = Guid.NewGuid().ToString(); => 產生一個新的GUID作為BookID，這個東西也可以寫在View中BookID的<input>裡
             book.CreatedDate = DateTime.Now; // 設定CreatedDate為目前時間

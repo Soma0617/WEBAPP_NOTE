@@ -9,9 +9,13 @@
 <div>
     <h2>@Html.DisplayFor(modelItem => Model.Title)</h2>
     <div class="card mb-4">
-        <img src="~/BookExamPhotos/@Model.Photo" class="card-img-top img-fluid" />
+        @if (Model.Photo != null)
+        {
+            <img src="~/BookExamPhotos/@Model.Photo" class="card-img-top img-fluid" />
+        }
+        
         <div class="card-body">
-            <p>@Html.DisplayFor(modelItem => Model.Description)</p>
+            <p>@Html.Raw(Model.Description.Replace("\r\n", "<br>"))</p>
         </div>
         <div class="card-footer">
             <p class="text-end">
